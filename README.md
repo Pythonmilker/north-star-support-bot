@@ -13,7 +13,11 @@ pnpm build
 
 Then open `demo/index.html` in a browser. The launcher is in the bottom-right corner.
 
-No key is needed. The bot answers from its keyword matcher, which handles every flow below on its own. Add an OpenRouter key (see [The API key](#the-api-key)) and a model reads free-form phrasing instead, with the store's facts filled in either way. Type any of these:
+No key is needed. The bot answers from its keyword matcher, which handles every flow below on its own. Add an OpenRouter key (see [The API key](#the-api-key)) and a model reads free-form phrasing instead.
+
+The demo's script tag also carries `data-conversational`, so with a key the model writes the reply as prose rather than picking a template. It still never writes a business fact: those are `{{SLOT}}` tokens it emits, and `src/answer/compose.ts` substitutes the verbatim value afterward, discarding the whole reply if anything fails to resolve. Without a key that layer is inert and the deterministic renderer answers. Facts are byte-identical either way.
+
+Type any of these:
 
 - `where's my order 111` returns `Order #111 — Status: Shipped, arriving tomorrow`. Also try `222`, `333`, and an unknown number.
 - `what's your return policy` gives the 30-day, unused, original-packaging policy and a Start a return button.
