@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>North Star Support Bot — Shadow DOM isolation test</title>
+
+<!--
+  THIS PAGE IS DELIBERATELY HOSTILE.
+
+  It is a plain static HTML file — no npm, no build step, no framework — because that is the
+  environment the widget has to survive in. On top of that, the CSS below is an intentionally brutal
+  global reset: it reverses box-sizing, strips every button, blows up input font sizes, and forces a
+  clashing font on everything.
+
+  A widget that renders correctly here is genuinely isolated. A widget that renders correctly on a
+  clean page has proved nothing. If the Shadow DOM boundary ever regresses, this page will show it
+  immediately — the chat panel will visibly fall apart.
+
+  This is a TEST harness, not the demo. For the product demo, open index.html (a clean storefront).
+-->
+<style>
+  /* --- the host site's own (perfectly reasonable) styles --- */
+  body {
+    font-family: "Comic Sans MS", "Brush Script MT", cursive;
+    margin: 0; padding: 40px 24px; background: #14181c; color: #e8eef2;
+    line-height: 1.7;
+  }
+  h1 { font-size: 32px; margin: 0 0 8px; }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .note { background: #1e2429; border-left: 3px solid #d97706; padding: 14px 16px; border-radius: 6px; }
+  code { background: #263038; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  .back { display: inline-block; margin-bottom: 20px; }
+
+  /* --- the hostile part: global resets that would wreck a non-isolated widget --- */
+  *, *::before, *::after { box-sizing: content-box !important; }
+  button { all: unset; cursor: pointer; }
+  input  { font-size: 30px !important; border: 4px dashed magenta !important; }
+  div    { letter-spacing: 0.5px; }
+  svg    { transform: rotate(180deg); }
+  a      { color: lime !important; text-decoration: overline !important; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">&larr; Back to the store</a>
+    <h1>Shadow DOM isolation test</h1>
+    <p>Tents, packs, and layers for the long trail. (A deliberately broken page used to test the widget.)</p>
+
+    <div class="note">
+      <strong>This page is intentionally hostile.</strong> Its CSS sets
+      <code>box-sizing: content-box</code>, does <code>button { all: unset }</code>, forces
+      <code>input { font-size: 30px }</code>, rotates every <code>svg</code> 180&deg;, and paints links lime.
+      The widget below is unaffected because it lives entirely inside a Shadow DOM.
+      If the isolation ever breaks, you will see it happen here.
+    </div>
+
+    <p style="margin-top:28px">
+      Integration is one line — exactly what a client pastes into their own site:
+    </p>
+<pre style="background:#1e2429;padding:14px;border-radius:6px;overflow-x:auto"><code>&lt;script src="north-star-bot.js" data-position="bottom-right"&gt;&lt;/script&gt;</code></pre>
+  </div>
+
+  <script src="../dist/north-star-bot.js" data-returns-url="returns.html" data-shop-url="index.html#shop" data-conversational></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start a Return — North Star Outfitters</title>
+
+<!--
+  The page the "Start a return" button opens. It leads with the return POLICY (the verified data) so a
+  customer sees it immediately, and keeps the "this is a demo placeholder / here's how to configure it"
+  note small and at the bottom. Plain static HTML, no external requests — opens straight from the file
+  system. A real store points data-returns-url at their own live returns page.
+
+  The three policy lines below are reproduced verbatim from the brief.
+-->
+<style>
+  :root { --forest:#1e6e4e; --forest-dark:#17553c; --ink:#1b2620; --muted:#5c6b62; --cream:#f7f5ef; --card:#fff; --line:#e7e3d8; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--cream); color:var(--ink); line-height:1.6;
+         font-family:-apple-system,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif; }
+  a { color:var(--forest); }
+  header { border-bottom:1px solid var(--line); background:var(--card); }
+  .bar { max-width:760px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:10px; }
+  .brand { font-weight:800; font-size:19px; letter-spacing:-.02em; }
+  .brand .star { color:var(--forest); }
+  main { max-width:760px; margin:0 auto; padding:44px 24px 64px; }
+  h1 { font-size:34px; letter-spacing:-.02em; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 32px; font-size:17px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px 28px; margin-bottom:28px; }
+  .card h2 { margin:0 0 16px; font-size:20px; }
+  .policy { list-style:none; padding:0; margin:0; }
+  .policy li { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); font-size:17px; font-weight:600; }
+  .policy li:last-child { border-bottom:0; }
+  .check { flex:none; width:26px; height:26px; border-radius:50%; background:var(--forest); color:#fff;
+           display:flex; align-items:center; justify-content:center; font-size:15px; }
+  ol.steps { margin:0; padding-left:22px; }
+  ol.steps li { padding:6px 0; }
+  .cta { display:inline-block; margin-top:18px; background:var(--forest); color:#fff; font-weight:600;
+         padding:12px 22px; border:none; border-radius:10px; font-size:15px; cursor:pointer; }
+  .cta:hover { background:var(--forest-dark); }
+  .note { font-size:13px; color:var(--muted); border-top:1px solid var(--line); padding-top:20px; margin-top:8px; }
+  .note code { background:#e9eee9; padding:.1rem .4rem; border-radius:4px; font-size:.92em; }
+  .back { display:inline-block; margin-top:10px; }
+</style>
+</head>
+<body>
+  <header><div class="bar"><span class="star"> </span> <span class="brand">North Star Outfitters</span></div></header>
+
+  <main>
+    <h1>Start a return</h1>
+    <p class="sub">Changed your mind or need a different size? Here's everything you need to know.</p>
+
+    <div class="card">
+      <h2>Our return policy</h2>
+      <ul class="policy">
+        <li><span class="check">✓</span> 30-day returns</li>
+        <li><span class="check">✓</span> Items must be unused</li>
+        <li><span class="check">✓</span> Original packaging required</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Have your order number ready.</li>
+        <li>Pack the item, unused, in its original packaging.</li>
+        <li>Print your prepaid label and drop it at any carrier.</li>
+      </ol>
+      <button class="cta" type="button">Start my return</button>
+    </div>
+
+    <p class="note">
+      This is a demo placeholder shipped with the support-bot deliverable — it's where the widget's
+      "Start a return" button points by default. A real store aims it at their own live returns page:
+      <code>data-returns-url="https://yourstore.com/returns"</code>.
+      <br><a class="back" href="index.html">&larr; Back to the store</a>
+    </p>
+  </main>
+</body>
+</html>
