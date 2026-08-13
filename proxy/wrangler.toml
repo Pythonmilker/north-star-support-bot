@@ -1,0 +1,17 @@
+name = "north-star-bot-proxy"
+main = "worker.ts"
+compatibility_date = "2026-01-01"
+
+# Which sites may call this proxy. Exact origins, comma-separated — scheme and host, no path, no wildcard.
+# There is no default: leave this out and the proxy allows nobody. That is deliberate.
+[vars]
+ALLOWED_ORIGINS = "https://northstar-outfitters.example"
+
+# Optional. Must be one of ALLOWED_MODELS in src/transport/protocol.ts, or it's ignored.
+# MODEL = "anthropic/claude-haiku-4.5"
+
+# The key is NOT here. It is a secret:
+#
+#   wrangler secret put OPENROUTER_API_KEY
+#
+# Secrets are encrypted at rest and never appear in this file, in git, or in the browser.
