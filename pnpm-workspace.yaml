@@ -1,0 +1,5 @@
+# pnpm 11 reads settings from here rather than the "pnpm" field in package.json.
+# esbuild (a Vite/Vitest dependency) runs a postinstall to fetch its native binary — required for
+# the test runner and the production build to work at all.
+allowBuilds:
+  esbuild: true

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+
+# Local key for rebuilding the LLM path. Never committed; see README "The API key".
+.env.local
+.env
+
+# Editor / OS
+.DS_Store
+*.log
