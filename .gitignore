@@ -8,3 +8,6 @@ dist/
 # Editor / OS
 .DS_Store
 *.log
+
+# Notes Claude Code's subagents keep between sessions. They stay on the machine: this repo is public.
+.claude/agent-memory/
